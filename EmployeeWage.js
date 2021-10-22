@@ -6,22 +6,20 @@ const FULL_TIME_Hours=8;
 const RATE_PER_HOUR=100;
 let empHours=0;
 let EmployeeCheck=Math.floor(Math.random()*3);
+function getEmpHours(EmployeeCheck)
+{
 switch(EmployeeCheck)
 {
    case 1:
-   empHours=PART_TIME_Hours; 
-   console.log("UC 2 Employee is Present Part Time");
-   break;
+   return PART_TIME_Hours;
    case 2:
-   empHours=FULL_TIME_Hours;
-   console.log("UC 2 Employee is Present Full Time");
-   break;
+   return FULL_TIME_Hours;
    default :
-   empHours=0;
-   console.log("Employee is Absent")
-   break;    
+   return 0;
 }
+}
+empHours=getEmpHours(EmployeeCheck);
 let empWage=empHours*RATE_PER_HOUR;
-console.log("UC 2 the Employee Wage of the day is :"+empWage);
+console.log("UC 3 the Employee Wage of the day is :"+empWage);
 
 
