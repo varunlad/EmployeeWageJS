@@ -18,7 +18,12 @@ class EmployeePayRoll
 
     //Getter and Setter Method
     get name(){return this._name}
-    set name(name){this._name=name}
+    set name(name){
+        let nameRegex=RegExp('^[A-Z]{1}[a-z]{2,}$')
+        if(nameRegex.test(name))
+        this._name=name
+        else throw 'Name is Incorrect';
+    }
     
     //method
     toString()
@@ -26,10 +31,13 @@ class EmployeePayRoll
     return "id ="+this.id+"  Name ="+this.name+"  Salary ="+this.salary+"  Gender ="+this.gender+"  Start Date= "+this.statrDate;
     }
 } 
-let EmployeeObj1=new EmployeePayRoll(1,"varun",123456,"M","2021-01-01");
-let EmployeeObj2=new EmployeePayRoll(2,"sakshi",517539,"F","2020-01-01");
-
-console.log("Employee Details :"+EmployeeObj1.toString())
-console.log("Employee Details :"+EmployeeObj2.toString())
-EmployeeObj2.name="ABC"
-console.log(" updated Employee Details :"+EmployeeObj2.toString())
+try{
+let EmployeeObj1=new EmployeePayRoll(1,"Varun",123456,"M","2021-01-01");
+console.log("Employee Details :"+EmployeeObj1)
+EmployeeObj1.name="abc"
+console.log(" updated Employee Details :"+EmployeeObj1)
+}catch(ex){
+    console.error(ex);
+}
+let EmployeeObj2=new EmployeePayRoll(2,"Sakshi",517539,"F","2020-01-01");
+console.log("Employee Details :"+EmployeeObj2)
